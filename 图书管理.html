@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	ul,li {
+		list-style: none
+	}
+	.main {
+		margin: 100px auto;
+		width: 1000px;
+	}
+	li {
+		float: left;
+		width: 200px;
+		height: 60px;
+		text-align: center;
+		line-height: 60px;
+		border: 1px dashed orange;
+		background-color: #aaa;
+	}
+	ul:nth-child(0) {
+		background-color: orange;
+	}
+	.inp {
+		margin: 0 auto;
+		width: 600px;	
+	}
+
+</style>
+<body>
+	<div id="app">
+		<div class="main">
+			<div class="inp">
+				<label for="id">
+					编号:
+				</label>
+				<input type="text" id="id" v-model='id' :disabled="flag">
+				<label for="name">
+					名称:
+				</label>
+				<input type="text" id="name" v-model='name'>
+				<button @click='handle' :disabled="subflag">提交</button>
+			</div>
+			<ul>
+			<li>编号</li>
+			<li>名称</li>
+			<li>时间</li>
+			<li>操作</li>
+		</ul>
+		<ul v-for='(item,index) in books' :key = item.id>
+			<li>{{ item.id }}</li>
+			<li>{{ item.name }}</li>
+			<li>2016-01-01</li>
+			<li>
+				<span><a href="" @click.prevent='toEite(item.id)'>修改</a></span> |
+				<span><a href="" @click.prevent='del(item.id)'>删除</a></span>
+			</li>
+		</ul>
+		</div>
+		
+	</div>
+</body>
+<script src="js/node_modules/.staging/vue-bd618cae/dist/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el: '#app',
+		data: {
+			id : '',
+			name : '',
+			flag : false,
+			subflag: true,
+			books: []
+		},
+		methods: {
+			handle () {
+				if (this.flag) {
+					this.books.some((item)=> {
+						if (this.id ===this.id) {
+							item.name = this.name
+							return true
+						}
+					})
+					this.flag = false
+				}else {
+					var book = {}
+					book.id = this.id
+					book.name = this.name
+					book.date = ''
+					this.books.push(book)
+				}
+				this.id = this.name = ''
+				
+			},
+			toEite (id) {
+				// console.log (id)
+				var book = this.books.filter(function(item) {
+					return item.id === id
+				})
+				// console.log (book)
+				this.id = book[0].id
+				this.name = book[0].name
+				this.flag = 'true'
+			},
+			del (id) {
+				var index = this.books.findIndex(function(item){
+					return item.id === id
+				})
+				// this.books.splice(index,1);
+				this.books = this.books.filter(function(item) {
+					return item.id != id
+				});
+			}
+		},
+		watch: {
+			name: function(val) {
+				var flag = this.books.some(function(item){
+					return item.name === val
+				})
+				if (flag) {
+					this.subflag = true
+				}else {
+					this.subflag = false
+				}
+			}
+		},
+		mounted: function () {
+			var data = [
+				{
+					id:1,
+					name: '三国演义',
+					time: new Date()
+				},
+				{
+					id:2,
+					name: '水浒传',
+					time: new Date()
+				},
+				{
+					id:3,
+					name: '红楼梦',
+					time: new Date()
+				},
+				{
+					id:4,
+					name: '西游记',
+					time: new Date()
+				}
+			]
+			this.books = data 
+		}
+	})
+</script>
+</html>

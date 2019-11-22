@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>前后端交互</div>
+	<script src="myapi/node_modules/jquery/dist/jquery.js"></script>
+	<script>
+		// fetch('http://localhost:3000/books?id=4',{
+		// 	method: 'get'
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+		// console.dir	(fetch)
+
+
+
+
+		// fetch('http://localhost:3000/books/444',{
+		// 	method: 'get'
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+		// console.dir	(fetch)
+		
+		// fetch('http://localhost:3000/books/444',{
+		// 	method: 'delete'
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+		// console.dir	(fetch)
+
+
+
+		// fetch('http://localhost:3000/books',{
+		// 	method: 'post',
+  //   		body: 'uname=zhangsan&pwd=123',
+  //   		//请求头是必须加的
+  //   		headers: {
+  //               'Content-Type':'application/x-www-form-urlencoded'
+  //           }
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+
+		// fetch('http://localhost:3000/books',{
+		// 	method: 'post',
+  //   		body: JSON.stringify({
+  //   			uname:'zhangsan',
+  //   			pwd: '123'
+  //   		}),
+  //   		//请求头是必须加的
+  //   		headers: {
+  //               'Content-Type':'application/json'
+  //           }
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+
+		// fetch('http://localhost:3000/books/123',{
+		// 	method: 'put',
+  //   		body: JSON.stringify({
+  //   			uname:'zhangsan',
+  //   			pwd: 'aaa'
+  //   		}),
+  //   		//请求头是必须加的
+  //   		headers: {
+  //               'Content-Type':'application/json'
+  //           }
+		// }).then(function(data) {
+		// 	return data.text()
+		// }).then(function(data) {
+		// 	console.log(data)
+		// })
+
+
+		fetch('http://localhost:3000/json').then(function(data) {
+			return data.json()
+		}).then(function(data) {
+			console.log(data.uname)
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src='myapi/node_modules/axios/dist/axios.js'></script>
+	<script>
+		// axios.get('http://localhost:3000/adata').then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+		// axios.get('http://localhost:3000/axios?id=54').then(function(data) {
+		// 	console.log(data.data)
+		// })
+		// axios.get('http://localhost:3000/axios/54').then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+
+		// axios.get('http://localhost:3000/axios',{
+		// 	params: {
+		// 		id: 14443,
+		// 		name: 'aaaaaa'
+		// 	}
+		// }).then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+		// axios.delete('http://localhost:3000/axios',{
+		// 	params: {
+		// 		id: 14443,
+		// 		name: 'aaaaaa'
+		// 	}
+		// }).then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+		// axios.post('http://localhost:3000/axios',{
+		// 	id: 14443,
+		// 	name: 'aaaaaa'
+		// }).then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+
+		// var params = new URLSearchParams()
+		// params.append('name','zhangsan')
+		// params.append('id','12345')
+
+		// axios.post('http://localhost:3000/axios',params).then(function(data) {
+		// 	console.log(data.data)
+		// })
+
+		axios.defaults.baseURL = 'http://localhost:3000/'
+		axios.put('axios/1234444',{
+			name: 'zhangsan',
+			id: 23
+		}).then(function(data) {
+			console.log(data.data)
+		})
+
+	</script>
+</body>
+</html>

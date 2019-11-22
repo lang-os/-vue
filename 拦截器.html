@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script src='myapi/node_modules/axios/dist/axios.js'></script>
+	<script>
+		//请求拦截器
+		axios.interceptors.request.use(function(config){
+			console.log(config.url)
+			config.header.mytoken = 'nihao'
+			return config
+		},function(err){
+			console.log(err)
+		})
+		axios.get('http://localhost:3000/adata').then(function(data) {
+			console.log(data)
+		})
+		
+
+		//响应拦截器
+		
+		
+		
+	</script>
+</body>
+</html>
